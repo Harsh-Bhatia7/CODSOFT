@@ -22,17 +22,14 @@ def clear():
     entry.delete(0, tk.END)
     entry.insert(tk.END, "0")
 
-# Create the main window
 window = tk.Tk()
 window.title("My Calculator")
 window.configure(bg='dark grey')
 
-# Create an entry widget for the display
 entry = tk.Entry(window, width=30, font=('Times New Roman', 20), bd=15, insertwidth=1, justify='right', bg='white')
 entry.grid(row=0, column=0, columnspan=4, sticky='nsew')
-entry.insert(0, "0")  # Set default number to "0"
+entry.insert(0, "0")
 
-# Create button widgets
 buttons = [
     '7', '8', '9', '/',
     '4', '5', '6', '*',
@@ -54,14 +51,11 @@ for button in buttons:
         col = 0
         row += 1
 
-# Add a clear button
 clear_button = tk.Button(window, text='Clear', padx=10, pady=10, font=('Times New Roman', 15), bd=5, bg='grey', fg='white', command=clear)
 clear_button.grid(row=row, column=col, columnspan=4, sticky='nsew')
 
-# Configure grid weights for resizing
 for i in range(5):
     window.grid_rowconfigure(i, weight=1)
     window.grid_columnconfigure(i, weight=1)
 
-# Run the main event loop
 window.mainloop()
